@@ -1,0 +1,58 @@
+### Node ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 输出目录
+dist/
+build/
+.tmp/
+.temp/
+
+### VitePress ###
+.vitepress/dist/
+.vitepress/cache/
+.vitepress/.temp/
+.vitepress/assets/*
+
+# VitePress dev temp caches
+**/.vite/
+vite.config.timestamp-*
+vite.config.*.json
+
+### Logs ###
+logs/
+*.log
+*.gz
+
+### Editor directories ###
+# VSCode
+.vscode/
+
+# JetBrains (IntelliJ/WebStorm)
+.idea/
+*.iml
+out/
+
+### System files ###
+.DS_Store
+Thumbs.db
+
+### Env files ###
+.env
+.env.*
+!.env.example
+
+### Optional: ignore deploy outputs ###
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+
+### Optional: local backups ###
+*.bak
+*.swp
+*.swo
