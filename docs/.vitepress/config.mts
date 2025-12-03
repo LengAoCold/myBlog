@@ -4,6 +4,8 @@ import {defineConfig} from 'vitepress'
 export default defineConfig({
     title: "LengAo's Notes",
     description: "A VitePress Notes Site",
+    base: '/docs',
+    lastUpdated: true,
     themeConfig: {
         // https://vitepress.dev/reference/default-theme-config
         nav: [
@@ -17,6 +19,7 @@ export default defineConfig({
                 text: 'Notes',
                 items: [
                     {text: 'Notes', link: '/notes'},
+                    {text: 'Git-CIDI', link: '/Git-CICD'},
                     {text: 'Markdown Notes', link: '/markdown-examples'},
                     {text: 'Runtime API Notes', link: '/api-examples'}
                 ]
@@ -24,7 +27,7 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/lengaocold'}
+            {icon: 'github', link: 'https://github.com/LengAoCold/myBolg'}
         ]
     }
 })
