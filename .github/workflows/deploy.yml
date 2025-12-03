@@ -18,11 +18,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Dependencies
-        run: npm ci
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Dependencies (pnpm)
+        run: pnpm install --frozen-lockfile
 
       - name: Build VitePress
-        run: npm run build:docs
+        run: pnpm run build:docs
 
       - name: Setup SSH
         env:
