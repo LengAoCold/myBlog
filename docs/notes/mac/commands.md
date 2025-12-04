@@ -21,7 +21,7 @@ command + shift + .
 ```
 :::
 
-## 音乐视频无法播放[markdown.md](../../../../../../myLearn/markdown%E8%AF%AD%E6%B3%95/markdown.md)
+## 音乐视频无法播放
 ::: info 音乐视频无法播放
 ```shell
  sudo killall coreaudiod
