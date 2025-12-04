@@ -1,4 +1,5 @@
 # Git 基础命令
+## Git 命令
 ```shell
 git add 添加
 
@@ -63,7 +64,10 @@ git fetch 这将更新git remote 中所有的远程repo 所包含分支的最新
 git pull origin master --allow-unrelated-histories 强制合并
 
 touch .gitignore 创建一个文件
+```
 
+## 忽略文件
+```shell
 # 忽略文件
 .DS_Store
 

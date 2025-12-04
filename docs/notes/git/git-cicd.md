@@ -1,5 +1,7 @@
 # GitHub CICD 部署
-#### 1. 在服务器上创建 deploy 用户（如果还没有）
+
+## 服务器创建用户
+#### 在服务器上创建 deploy 用户（如果还没有）
 ```shell
 # 在服务器上以 root 或有 sudo 的用户运行
 sudo adduser deploy
@@ -8,7 +10,8 @@ sudo chown -R deploy:deploy /项目目录
 sudo chmod -R 755 /项目目录
 ```
 
-#### 2. 为 GitHub Actions 创建一个部署用 SSH Key
+## GitHub 创建 SSH
+#### 为 GitHub Actions 创建一个部署用 SSH Key
 在你的本地电脑执行：
 ```shell
 ssh-keygen -t ed25519 -f deploy_key -C "github-deploy"
@@ -27,7 +30,8 @@ ssh-copy-id -i deploy_key.pub deploy@x.x.x.x
 cat deploy_key.pub | ssh deploy@8.148.68.162 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
-#### 3. 在 GitHub 仓库设置 Secrets
+## GitHub 设置 Secrets
+#### 在 GitHub 仓库设置 Secrets
 进入仓库 → `Settings` → `Secrets` → `Actions` → `New repository secret`
 
 添加以下 `Secrets`（注意名称必须一致）：
@@ -40,7 +44,8 @@ cat deploy_key.pub | ssh deploy@8.148.68.162 "mkdir -p ~/.ssh && cat >> ~/.ssh/a
 
 **注意 SSH_PRIVATE_KEY 用的是 deploy_key（私钥），不是 .pub** 
 
-#### 4. 在项目中新建 GitHub Actions 配置文件
+## 创建自动化发布脚本
+#### 在项目中新建 GitHub Actions 配置文件
 在你的项目里新建：
 ```shell
 .github/workflows/deploy.yml
@@ -87,7 +92,7 @@ jobs:
 
       - name: Deploy to Server with rsync
         run: |
-          rsync -av --delete docs/.vitepress/dist/ \
+          rsync -avc --delete docs/.vitepress/dist/ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/
 
       - name: Reload Nginx
@@ -95,7 +100,7 @@ jobs:
           ssh ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "sudo nginx -s reload || true"
 ```
 
-#### 5. 测试
+## 开始测试
 本地提交代码
 ```shell
 git add .
@@ -106,9 +111,10 @@ git push origin main
 
 `GitHub Actions` → `自动 build` → `自动 rsync 上传` → `自动 nginx reload`
 
-#### 🔍 常见问题说明
-1. VitePress 构建产物路径
+## 🔍 常见问题说明
+
+#### VitePress 构建产物路径
 ```shell
 # 删除旧文件时可能找不到文件夹，就找一下对应的 vite press build 后构建的目录
-rsync -av --delete .vitepress/dist/
+rsync -avc --delete .vitepress/dist/
 ```

@@ -38,7 +38,7 @@ jobs:
 
       - name: Deploy to Server with rsync
         run: |
-          rsync -av --delete docs/.vitepress/dist/ \
+          rsync -avc --delete docs/.vitepress/dist/ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}/
 
       - name: Reload Nginx

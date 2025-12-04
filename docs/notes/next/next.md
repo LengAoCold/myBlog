@@ -1,5 +1,5 @@
 # nextJS
-
+## 创建项目
 ```shell
 # 全局安装nest
 npm i -g @nestjs/cli
@@ -17,6 +17,7 @@ npm install prisma --save-dev
 npx prisma init
 ```
 
+##  创建数据库
 ```shell
 # 然后更改env中的sql类型，对应数据库类型
 # 更改prisma中的schema.prisma中db类型
