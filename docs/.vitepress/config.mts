@@ -14,11 +14,12 @@ export default defineConfig({
     // 📅 最后更新
     markdown: {
         // theme: 'github-light',
-        lineNumbers: true
+        lineNumbers: true,
     },
 
     themeConfig: {
         // 🔍 全局搜索（local-search 或 algolia）
+
         docFooter: {
             prev: '上一页',
             next: '下一页'

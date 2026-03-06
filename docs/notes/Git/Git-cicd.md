@@ -27,7 +27,7 @@ ssh-copy-id -i deploy_key.pub deploy@x.x.x.x
 ```
 如果没有 ssh-copy-id，就：
 ```shell
-cat deploy_key.pub | ssh deploy@8.148.68.162 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+cat deploy_key.pub | ssh deploy@x.x.x.x "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
 ## GitHub 设置 Secrets

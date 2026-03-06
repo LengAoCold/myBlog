@@ -26,10 +26,12 @@ export function generateSidebar(rootDir: string, basePath = ''): SidebarItem[] {
         .map(name => {
             const filePath = path.join(fullPath, name)
             const stat = fs.statSync(filePath)
+
             const linkPath = path.join(basePath, name)
 
             if (stat.isDirectory()) {
                 return {
+                    base: '/',
                     text: name,
                     // text: capitalizeFirstLetter(name), // 首字母大写
                     // collapsible: true,
